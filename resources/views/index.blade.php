@@ -1,4 +1,5 @@
 @extends('layout.master')
+@section('title', 'Dashboard – The Simplest Chat Platform')
 @section('content')
     <div class="layout">
         <!-- Start of Navigation -->

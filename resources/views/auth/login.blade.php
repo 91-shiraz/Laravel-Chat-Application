@@ -1,4 +1,5 @@
 @extends('layout.master')
+@section('title', 'Login – The Simplest Chat Platform')
 @section('content')
     <div class="layout">
         <div class="main order-md-1">
@@ -19,7 +20,7 @@
                                 </button>
                             </div>
                             <p>or use your Email Account:</p>
-                            <form action="" method="POST">
+                            <form action="{{route('login')}}" method="POST">
 								@csrf
                                 <div class="form-group">
                                     <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email Address" autofocus>
@@ -31,7 +32,7 @@
                                 </div>
                                 <button type="submit" class="btn button">Sign In</button>
                                 <div class="mt-3">
-                                    <span>Don't have Account? <a href="" class="text-primary fw-bold">Sign Up</a></span>
+                                    <span>Don't have Account? <a href="{{route('signup')}}" class="text-primary fw-bold">Sign Up</a></span>
                                 </div>
                             </form>
                         </div>
@@ -45,7 +46,7 @@
                     <div class="preference">
                         <h2>Hello, Friend!</h2>
                         <p>Enter your personal details and start your journey with Swipe today.</p>
-                        <a href="" class="btn button">Sign Up</a>
+                        <a href="{{route('signup')}}" class="btn button">Sign Up</a>
                     </div>
                 </div>
             </div>

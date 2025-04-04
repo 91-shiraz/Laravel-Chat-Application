@@ -1,4 +1,5 @@
 @extends('layout.master')
+@section('title', 'Register – The Simplest Chat Platform')
 @section('content')
     <div class="layout">
         <div class="main order-md-2">
@@ -19,7 +20,7 @@
                                 </button>
                             </div>
                             <p>or use your Email for Registration:</p>
-                            <form class="signup" action="" method="POST">
+                            <form class="signup" action="{{route('register')}}" method="POST">
 								@csrf
                                 <div class="form-parent">
                                     <div class="form-group">
@@ -43,10 +44,9 @@
                                     <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Enter Confirm Password">
                                     <button class="btn icon"><i class="material-icons">lock_outline</i></button>
                                 </div>
-
                                 <button type="submit" class="btn button">Register</button>
                                 <div class="mt-3">
-                                    <span>Already a member? <a href="" class="text-primary fw-bold">Sign In</a></span>
+                                    <span>Already a member? <a href="{{route('signin')}}" class="text-primary fw-bold">Sign In</a></span>
                                 </div>
                             </form>
                         </div>
@@ -60,7 +60,7 @@
                     <div class="preference">
                         <h2>Welcome Back!</h2>
                         <p>To keep connected with your friends please login with your personal info.</p>
-                        <a href="" class="btn button">Sign In</a>
+                        <a href="{{route('signin')}}" class="btn button">Sign In</a>
                     </div>
                 </div>
             </div>

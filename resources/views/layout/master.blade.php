@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Swipe – The Simplest Chat Platform</title>
+    <title>@yield('title')</title>
     <meta name="description" content="#">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap core CSS -->
@@ -28,11 +28,36 @@
     <script src="{{ asset('assets/js/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/swipe.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function scrollToBottom(el) {
             el.scrollTop = el.scrollHeight;
         }
         scrollToBottom(document.getElementById('content'));
+    </script>
+    @if (session()->has('message'))
+        <script>
+            Swal.fire({
+                title: "{{ session()->get('title') ?? 'success!' }}",
+                html: "{{ session()->get('message') }}",
+                {{-- html: "{{ @ucwords(preg_replace('/(?<!\ )[A-Z]/', ' $0', session()->get('message'))) }}", --}}
+                icon: "{{ session()->get('type') ?? 'success' }}",
+                timer: 5000,
+                buttons: false,
+            });
+        </script>
+    @endif
+
+    @if (session()->has('flash_message'))
+        <script>
+            Swal.fire({
+                title: "{{ @ucwords(preg_replace('/(?<!\ )[A-Z]/', ' $0', session()->get('flash_message'))) }}",
+                icon: "{{ session()->get('type') ?? 'success' }}",
+                timer: 5000,
+                buttons: false,
+            });
+        </script>
+    @endif
     </script>
 </body>
 
